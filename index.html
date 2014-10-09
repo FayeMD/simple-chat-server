@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+      <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  
+<!-- Body info -->
+  <body>
+
+
+  <div id="header">
+    <h1><font color="white">Your FAYvoritE Distraction</font>
+
+<!-- This button directs users to my blog -->
+      <a href="http://www.fayemcdonald.com/" target="_blank">
+       <button>FAYE's BOOK</button></a></h1>
+  </div>
+
+<!-- "chat" is the container for my chat box -->
+<div class="wrapper">
+
+<!-- A welcome msg and where users enter their name -->
+<div id="welcome">
+  <h2><center>CHAT BELOW</center></h2>
+</div>  
+
+
+  
+<!-- "msg_area" is where msgs sent are housed -->
+<div id="msg_area" style="overflow-y: scroll"></div>
+  
+<input type="text" id="text_box" placeholder="'enter' thoughts here ~">
+
+  </div>
+
+<!-- Conversation starters for users -->
+
+  <div class="topics">
+    <ul>
+      <center>
+        <h2>TOPICS</h2></center>
+      
+      <li><a href="http://villageparksource.com/intro-to-html-and-css/" target="_blank">Learn HTML/CSS</a></li>
+      
+      <li><a href="http://villageparksource.com/intro-to-javascript/" target="_blank">Learn JavaScript</a></li>
+      
+      <li><a href="http://iamerinbrown.com/" target="_blank">Meet Erin Brown</a></li>
+      
+      <li><a href="http://www.citynews.ca/2008/03/13/woman-who-sat-on-toilet-seat-for-two-years-refusing-to-help-medical-authorities" target="_blank"/>Craziness</a></li>
+      
+      <li><a href="https://www.stephencovey.com/7habits/7habits-habit2.php" target="_blank">Think from the End</a></li>
+      
+      <li><a href="http://www.cnbc.com/id/43768333" target="_blank">10 $100M Ideas</a></li>
+      
+      <li><a href="http://elitedaily.com/money/10-successful-people-adhd/" target="_blank">Successful People with ADHD</a></li>
+      
+      <li><a href="http://zenhabits.net/why-living-a-life-of-gratitude-can-make-you-happy/" target="_blank">Profit from Gratitude</a></li>
+      
+      <li><a href="http://www.businessweek.com/articles/2012-12-13/lottery-winner-jack-whittakers-losing-ticket" target="_blank">Jack Whittacker's Miserable $314,900,000. Winnings</a></li>
+      
+      <li><a href="http://en.wikipedia.org/wiki/The_Queen_of_Versailles" target="_blank">Blaming the Bank</a></li>
+      
+      <li><a href="http://www.annettelarkins.com/" target="_blank">Fountain of Youth? Annette Larkins</a></li>
+      
+      <li><a href="http://iggyazalea.com/" target="_blank">Down with IGGY</a></li>
+      
+      <li><a href="http://www.capebretoneagles.com/" target="_blank">Go Eagles Go!! @CBSEHockey</a></li>
+      
+      <li><a href="http://www.capebretonfiddlersrun.com/" target="_blank">Cape Breton Fiddlers Run</a></li>
+      
+      <li><a href="http://www.cbu.ca/" target="_blank">Cape Breton University</a></li>
+      
+      <li><a href="http://www.horoscope.com/" target="_blank">Horoscopes</a></li>
+      
+      <li><a href="http://ca-en.spartanrace.com/" target="_blank">Spartan Race</a></li>
+      
+      <li><a href="http://watchseries.lt/serie/suburgatory" target="_blank">Suburgatory</a></li>
+      
+      <li><a href="http://abc.go.com/shows/the-goldbergs" target="_blank">The Goldbergs</a></li>
+
+
+    </ul>
+
+  </div>
+
+<!-- Scripts go here -->
+
+<script src="script.js"> </script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('chat message', $('#text_box').val());
+    $('#text_box').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg){
+    $('#msg_area').append($('<li>').text(msg));
+  });
+    
+</script>
+  </body>
+</html>
