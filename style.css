@@ -10,6 +10,8 @@ h2 {
   background-color: white;
   color: #cc0000;
 }
+
+
 #header {
   color: yellow;
   text-shadow:
@@ -85,21 +87,23 @@ li {
   background-image:url(heart.jpg);
 }
 
-#msg_area {
+#msgDisplay {
+  background-color: white;
   margin-top: 182px;
   height: 570px;
   width: 100%;
 }
 
-#text_box {
+#textInput {
   font-size: 15pt;
   width: 95%;
   display: inline-block;
   margin: 0 auto;
   margin-left: 2.5%;
-  margin-bottom: 1px;
+  margin-top: -50px;
   height: 28px;
   border: 2px solid #cc0000;
+  
 }
 
 button {
@@ -108,5 +112,3 @@ button {
   width: 100px;
   background-color: #ffff99;
 }
-
-} 

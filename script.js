@@ -1,18 +1,11 @@
-document.addEventListener("keyup",function(event){userdata(event);},false);
+var socket = io();
+		$('form').submit(function){
+				socket.emit('chat message', + $('#userMsg').val());
+				$('#userMsg').val('');
+				return false;
+		});
 
-function userdata(event) {
-  var userInput = event;
-
-  if (userInput.keyCode === 13) { 
-  var msg = document.getElementById("text_box").value;
-console.log(msg);
-var x = document.createElement("P");
-var t = document.createTextNode(msg);
-x.appendChild(t);
-document.getElementById("msg_area").appendChild(x);
-document.getElementById("text_box").value = "";
-  }
-
-}
-
+socket.on('chat message', function(msg){
+	$('msgDisplay').append($('<p>').text(msg));
+});
 

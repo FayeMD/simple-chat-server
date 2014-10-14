@@ -1,9 +1,10 @@
 {
   "name": "socket-chat-example",
   "version": "0.0.1",
+  "repository":"https://github.com/FayeMD/simple-chat-server.git",
   "description": "my first socket.io app",
   "dependencies": {
-    "express": "^4.9.5",
-    "socket.io": "^1.1.0"
+    "express": "*",
+    "socket.io": "*"
   }
 }

@@ -1,18 +1,16 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Your FAYvoritE Distraction</title>
       <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   
 <!-- Body info -->
   <body>
 
-
+<!-- Top Banner -->
   <div id="header">
     <h1><font color="white">Your FAYvoritE Distraction</font>
-
-<!-- This button directs users to my blog -->
       <a href="http://www.fayemcdonald.com/" target="_blank">
        <button>FAYE's BOOK</button></a></h1>
   </div>
@@ -28,12 +26,17 @@
 
   
 <!-- "msg_area" is where msgs sent are housed -->
-<div id="msg_area" style="overflow-y: scroll"></div>
-  
-<input type="text" id="text_box" placeholder="'enter' thoughts here ~">
-
+<div id="chatBox">
+  <div id="msgDisplay">
   </div>
-
+</div>
+  <div id="textInput">
+  <form action="">  
+    <input id="userMsg" autocomplete="off"/>
+    <button>Submit</button>
+  </form>
+  </div>
+</div>
 <!-- Conversation starters for users -->
 
   <div class="topics">
@@ -85,22 +88,13 @@
   </div>
 
 <!-- Scripts go here -->
-
-<script src="script.js"> </script>
-
 <script src="/socket.io/socket.io.js"></script>
+
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-  var socket = io();
-  $('form').submit(function(){
-    socket.emit('chat message', $('#text_box').val());
-    $('#text_box').val('');
-    return false;
-  });
-  socket.on('chat message', function(msg){
-    $('#msg_area').append($('<li>').text(msg));
-  });
-    
-</script>
+
+<script src="script.js" type="text/JavaScript"></script>
+
+
+
   </body>
 </html>
