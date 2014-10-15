@@ -26,16 +26,11 @@
 
   
 <!-- "msg_area" is where msgs sent are housed -->
-<div id="chatBox">
-  <div id="msgDisplay">
-  </div>
-</div>
-  <div id="textInput">
-  <form action="">  
-    <input id="userMsg" autocomplete="off"/>
-    <button>Submit</button>
-  </form>
-  </div>
+<div id="chat"></div>
+<form id="send-message">
+  <input id="message"></input>
+  <input type="submit"></input>
+</form>
 </div>
 <!-- Conversation starters for users -->
 
@@ -92,9 +87,24 @@
 
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 
-<script src="script.js" type="text/JavaScript"></script>
+<script>
+  jQuery(function(){
+    var socket = io.connect();
+    var $messageForm = $('#send-message');
+    var $messageBox = $('#message');
+    var $chat = $('#chat');
 
+    $messageForm.submit(function(e){
+      e.preventDefault();
+      socket.emit('send message', $messageBox.val());
+      $messageBox.val('');
+    });
+  
+    socket.on('new message', function(data){
+      $chat.append(data + "<br/>");
+    });
+  });
 
-
+</script>
   </body>
 </html>
