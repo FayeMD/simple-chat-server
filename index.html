@@ -15,25 +15,29 @@
        <button>FAYE's BOOK</button></a></h1>
   </div>
 
-<!-- "chat" is the container for my chat box -->
-<div class="wrapper">
+<div id="nickWrap">
+  <p>Enter a username:</p>
+  <p id="nickError"></p>
+  <form id="setNick">
+    <input id="nickname"></input>
+    <input type="submit"></input>
+  </form>
+</div>
 
-<!-- A welcome msg and where users enter their name -->
-<div id="welcome">
-  <h2><center>CHAT BELOW</center></h2>
-</div>  
 
 
-  
-<!-- "msg_area" is where msgs sent are housed -->
-<div id="chat"></div>
-<form id="send-message">
-  <input id="message"></input>
-  <input type="submit"></input>
-</form>
+<div id="contentWrap">
+  <div id="chatWrap">
+    <div id="chat"></div>
+      <form id="send-message">
+        <input id="message"></input>
+        <input type="submit"></input>
+      </form>
+    </div>
+  <div id="users"></div>
 </div>
 <!-- Conversation starters for users -->
-
+<!--
   <div class="topics">
     <ul>
       <center>
@@ -81,18 +85,44 @@
     </ul>
 
   </div>
+-->
 
 <!-- Scripts go here -->
 <script src="/socket.io/socket.io.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
   jQuery(function(){
     var socket = io.connect();
+    var $nickForm = $('#setNick');
+    var $nickError = $('#nickError');
+    var $nickBox = $('#nickname');
+    var $users = $('#users');
     var $messageForm = $('#send-message');
     var $messageBox = $('#message');
     var $chat = $('#chat');
+
+    $nickForm.submit(function(e){
+      e.preventDefault();
+      socket.emit('new user', $nickBox.val(), function(data){
+          if(data){
+              $('#nickWrap').hide();
+              $('#contentWrap').show();
+          } else{
+            $nickError.html('Nickname in use. Please try another.');
+          }
+      });
+      $nickBox.val('');
+    }); 
+    
+    socket.on('usernames', function(data){
+      var html = '';
+      for(i=0; i < data.length; i++){
+        html += data[i] + '<br/>'
+      }
+      $users.html(html);
+    });
 
     $messageForm.submit(function(e){
       e.preventDefault();
@@ -101,7 +131,7 @@
     });
   
     socket.on('new message', function(data){
-      $chat.append(data + "<br/>");
+      $chat.append('<b>' + data.nick + ':' + '</b>' + data.msg + '<br/>');
     });
   });
 

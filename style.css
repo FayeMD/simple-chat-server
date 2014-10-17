@@ -39,8 +39,18 @@ span {
   border-radius: 5px;
 }
 
+#nickWrap { 
+  border-radius: 5px;
+  border: white solid 1px;
+  height: 80px;
+  width: 100%;
+  background-image:url(heart.jpg);
+}
 
-
+#contentWrap {
+  display: none;
+}
+/*
 .topics {
   text-indent: 5px;
   position: relative;
@@ -55,6 +65,7 @@ span {
   margin-right: 5%;
   height: 715px;
   margin-top: 2%;
+  */
   
 }
 li {
@@ -62,7 +73,7 @@ li {
 }
 
 
-.wrapper {
+#chatWrap {
   margin-top: 20px;
   font-family: Trebuchet MS;
   font-color: white;
@@ -79,22 +90,16 @@ li {
   height: 715px;
 }
 
-#welcome { 
-  border-radius: 5px;
-  border: white solid 1px;
-  height: 80px;
-  width: 100%;
-  background-image:url(heart.jpg);
-}
 
-#msgDisplay {
+
+#chat {
   background-color: white;
   margin-top: 182px;
-  height: 570px;
+  height: 500px;
   width: 100%;
 }
 
-#textInput {
+#send-message {
   font-size: 15pt;
   width: 95%;
   display: inline-block;
