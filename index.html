@@ -16,7 +16,7 @@
   </div>
 
 <div id="nickWrap">
-  <p>Enter a username:</p>
+  <p><span>Please provide a username:</span></p>
   <p id="nickError"></p>
   <form id="setNick">
     <input id="nickname"></input>
@@ -37,7 +37,7 @@
   <div id="users"></div>
 </div>
 <!-- Conversation starters for users -->
-<!--
+
   <div class="topics">
     <ul>
       <center>
@@ -81,11 +81,19 @@
       
       <li><a href="http://abc.go.com/shows/the-goldbergs" target="_blank">The Goldbergs</a></li>
 
+      <li><a href="https://www.youtube.com/watch?v=pNKNYLv2BpQ" target="_blank">I Love Smitha: Part 1</a></li>
+
+      <li><a href="https://www.youtube.com/watch?v=dOSIqJWQkXM&src_vid=k8o8-Q_-Qfk&feature=iv&annotation_id=annotation_85141" target="_blank">Smitha Rules: Part 2</a></li>
+
+      <li><a href="https://www.youtube.com/watch?v=k8o8-Q_-Qfk" target="_blank">Secrets with Smitha: Part 3</a></li>
+
+      <li><a href="https://www.youtube.com/watch?v=c01OHDUpDMU" target="_blank">Database? Ask Smitha: Part 4</a></li>
+
 
     </ul>
 
   </div>
--->
+
 
 <!-- Scripts go here -->
 <script src="/socket.io/socket.io.js"></script>
@@ -131,7 +139,7 @@
     });
   
     socket.on('new message', function(data){
-      $chat.append('<b>' + data.nick + ':' + '</b>' + data.msg + '<br/>');
+      $chat.append('<b>' + data.nick + ': ' + '</b>' + data.msg + '<br/>');
     });
   });
 

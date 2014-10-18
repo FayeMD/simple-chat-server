@@ -42,8 +42,8 @@ io.sockets.on('connection', function(socket){
 
 app.use("/style.css", express.static(__dirname + '/style.css'));
 app.use("/script.js", express.static(__dirname + '/script.js'));
-app.use("/poppy.jpg", express.static(__dirname + '/poppy.jpg'));
-app.use("/dots2.jpg", express.static(__dirname + '/dots2.jpg'))
-app.use("/heart.jpg", express.static(__dirname + '/heart.jpg'));
+app.use("/heart2.jpg", express.static(__dirname + '/heart2.jpg'));
 app.use("/sky.jpg", express.static(__dirname + '/sky.jpg'));
-app.use("/lemonade.jpg", express.static(__dirname + '/lemonade.jpg'));
+app.use("/welcome2.jpg", express.static(__dirname + '/welcome2.jpg'));
+app.use("/frame.jpg", express.static(__dirname + '/frame.jpg'));
+app.use("/frame2.jpg", express.static(__dirname + '/frame2.jpg'));

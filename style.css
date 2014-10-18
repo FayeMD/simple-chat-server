@@ -3,11 +3,11 @@
 body {
   background-image:url(sky.jpg);
   image: no-repeat;
+  position: relative;
 }
 h2 {
   font-size: 20pt;
   font-family: Trebuchet MS;
-  background-color: white;
   color: #cc0000;
 }
 
@@ -15,14 +15,13 @@ h2 {
 #header {
   color: yellow;
   text-shadow:
-  -2px -2px 0 #000,  
-  2px -2px 0 #000,
-  -2px 2px 0 #000,
-  2px 2px 0 #000;
-  background-image: url(poppy.jpg);
+  -2px -2px 0 #006600,  
+  2px -2px 0 #006600,
+  -2px 2px 0 #006600,
+  2px 2px 0 #006600;
+  background-image: url(heart2.jpg);
   text-align: center;
-  font-size: 35;
-  background-color: #cc0000;
+  font-size: 70;
   font-family: Trebuchet MS;
   width: 100%;
   margin-top: 3%;
@@ -33,24 +32,82 @@ h2 {
   border-top: 1px #cc0000 solid;
 }
 span {
-  background-color:#ffff00;
-  float: right;
+
+  background-color: white;
   text-align: center;
   border-radius: 5px;
 }
 
 #nickWrap { 
+  margin-left: 25%;
+  float: left;
+  font-family: Trebuchet MS;
+  color: #cc0000;
+  font-size: 15pt;
   border-radius: 5px;
   border: white solid 1px;
-  height: 80px;
-  width: 100%;
-  background-image:url(heart.jpg);
+  height: 200px;
+  width: 35%;
+  background-image:url("welcome2.jpg");
+}
+
+#nickname {
+  width: 75%;
 }
 
 #contentWrap {
+  background-image: url("frame.jpg");
+  width: 960px;
+  height: 720px;
   display: none;
+  float: left;
+  position: relative;
+  margin-left: 0%;
 }
-/*
+
+#chatWrap {
+  width: 60%;
+  height: 80%;
+  margin-top: 8%;
+  margin-left: 8%;
+  font-family: Trebuchet MS;
+  position: relative;
+  float: left;
+  background-color: white;
+}
+
+#chat {
+  background-color: white;
+  height: 75%;
+  width: 75%;
+}
+
+#send-message {
+  margin-left: 15%;
+  font-size: 15pt;
+  width: 70%;
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  height: 28px;
+  margin-bottom: 0%;
+}
+
+#message {
+  width: 80%;
+}
+
+#users {
+  width: 22%;
+  background-color: #99ffff;
+  height: 80%;
+  margin-top: 8%;
+  margin-right: 8%;
+  float: right;
+  color: black;
+  font-family: Trebuchet MS;
+}
+
 .topics {
   text-indent: 5px;
   position: relative;
@@ -58,62 +115,25 @@ span {
   font-color: white;
   font-family: Trebuchet MS;
   float: right;
-  background-image:url("lemonade.jpg");
-  width: 30%;
+  background-color: white;
+  background-image:url("frame2.jpg");
+  background-repeat: no-repeat;
+  width: 25%;
+  margin-right: 2%;
   border-radius: 5px;
   border: white solid 2px;
-  margin-right: 5%;
   height: 715px;
-  margin-top: 2%;
-  */
-  
 }
+
 li {
   color: #cc0000;
 }
 
 
-#chatWrap {
-  margin-top: 20px;
-  font-family: Trebuchet MS;
-  font-color: white;
-  font-size: 15pt;
-  text-indent: 5px;
-  position: relative;
-  float: left;
-  background-image:url("dots2.jpg"); no-repeat; 100%;
-  background-size: 100%;
-  width: 55%;
-  margin-left: 5%;
-  border-radius: 5px;
-  border: white solid 2px;
-  height: 715px;
-}
-
-
-
-#chat {
-  background-color: white;
-  margin-top: 182px;
-  height: 500px;
-  width: 100%;
-}
-
-#send-message {
-  font-size: 15pt;
-  width: 95%;
-  display: inline-block;
-  margin: 0 auto;
-  margin-left: 2.5%;
-  margin-top: -50px;
-  height: 28px;
-  border: 2px solid #cc0000;
-  
-}
-
 button {
   float: right;
   height: 20px;
   width: 100px;
-  background-color: #ffff99;
+  color: white;
+  background-color: #cc99ff;
 }
